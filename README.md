@@ -84,3 +84,25 @@ As you can see above, the number of our dataset has decreased from 24108 to 7101
 * I used histogram equalization to equalize each intensity values
 * Flipping Images and Steering angles by using keras preprocessing image function, which is a effective technique for helping with the left turn bias involves flipping images and taking the opposite sign of the steering angle.
 
+
+### Model
+
+I used the below explained architecture that include;
+
+    First,I cropped all the unneeded part of the image( at the top of all the images are sky-mountain-forest and the hood of the car at the bottom).
+
+    Second I used a lambda layer which is a convenient way to parallelize image normalization. The lambda layer will also ensure that the model will normalize input images when making predictions.
+
+    Then I used 2 Block(as layer 3 and 4) where each block consists of the 2 Residual modules of ResNet(titled “Deep Residual Learning for Image Recognition”) with batch normalization and max pooling layer then foollowed by 1 Flatten layer and 4 dense layer with activation ELU and using dropout to not overfit the network,
+        Optimizer Adam with learning rate 1e-4 instead of default 1e-3.
+
+Keras provides the Cropping2D layer for image cropping within the model. This is relatively fast, because the model is parallelized on the GPU, so many images are cropped simultaneously.By contrast, image cropping outside the model on the CPU is relatively slow.
+
+Also, by adding the cropping layer, the model will automatically crop the input images when making predictions in drive.py. The Cropping2D layer might be useful for choosing an area of interest that excludes the sky and/or the hood of the car.The cropping layer crops:
+
+    60 rows pixels from the top of the image
+    20 rows pixels from the bottom of the image
+    0 columns of pixels from the left of the image
+    0 columns of pixels from the right of the image
+
+Since this model outputs a single continuous numeric value, one appropriate error metric would be mean squared error. If the mean squared error is high on both a training and validation set, the model is underfitting. If the mean squared error is low on a training set but high on a validation set, the model is overfitting. Collecting more data can help improve a model when the model is overfitting.
