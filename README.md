@@ -139,7 +139,7 @@ Below are presented the instructions on how to use [the trained weights](https:/
    
                    python drive.py model.h5 run1
                    
-The fourth argument, **run1**, is the directory in which to save the images seen by the autonomous agent and after saving all images based on a timestamp of when the image was seen, this information is used by video.py to create a chronological video of the agent driving using [video.py](https://github.com/A2Amir/Behavioral-Cloning/blob/master/drive.py)
+The fourth argument, **run1**, is the directory in which to save the images seen by the autonomous agent and after saving all images based on a timestamp of when the image was seen, this information is used by video.py to create a chronological video of the agent driving using [video.py](https://github.com/A2Amir/Behavioral-Cloning/blob/master/drive.py).
 
 
                     python video.py run1
