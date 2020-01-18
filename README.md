@@ -74,5 +74,6 @@ The resulting data distribution can be seen in the chart below. The distribution
 <p align="center"> <img src="./img/6.PNG" style="right;" alt=" Dataset Balancing
 " width="300" height="200"> </p> 
 
-The number of images After datset balancing : (7101, 160, 320, 3)
-The number of steering angles After datset balancing : (7101,)
+    The number of images After datset balancing : (7101, 160, 320, 3)
+
+    The number of steering angles After datset balancing : (7101,)
