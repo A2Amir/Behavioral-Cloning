@@ -50,8 +50,8 @@ The udacity simulator collects three different images (Center Image,Left Image,R
 
 
     The image size: (160, 320, 3)
-    the number of the images: (24108, 160, 320, 3) 
-    the number of the steering angles (24108,) 
+    The number of the images: (24108, 160, 320, 3) 
+    The number of the steering angles (24108,) 
 
 
 ### Dataset Balancing
@@ -75,5 +75,4 @@ The resulting data distribution can be seen in the chart below. The distribution
 " width="300" height="200"> </p> 
 
     The number of images After datset balancing : (7101, 160, 320, 3)
-
     The number of steering angles After datset balancing : (7101,)
