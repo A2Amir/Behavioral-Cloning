@@ -89,12 +89,12 @@ As you can see above, the number of our dataset has decreased from 24108 to 7101
 
 I used the below explained architecture that include;
 
-    First,I cropped all the unneeded part of the image( at the top of all the images are sky-mountain-forest and the hood of the car at the bottom).
+* First,I cropped all the unneeded part of the image( at the top of all the images are sky-mountain-forest and the hood of the car at the bottom).
 
-    Second I used a lambda layer which is a convenient way to parallelize image normalization. The lambda layer will also ensure that the model will normalize input images when making predictions.
+* Second I used a lambda layer which is a convenient way to parallelize image normalization. The lambda layer will also ensure that the model will normalize input images when making predictions.
 
-    Then I used 2 Block(as layer 3 and 4) where each block consists of the 2 Residual modules of ResNet(titled “Deep Residual Learning for Image Recognition”) with batch normalization and max pooling layer then foollowed by 1 Flatten layer and 4 dense layer with activation ELU and using dropout to not overfit the network,
-        Optimizer Adam with learning rate 1e-4 instead of default 1e-3.
+* Then I used 2 Block(as layer 3 and 4) where each block consists of the 2 Residual modules of ResNet(titled “Deep Residual Learning for Image Recognition”) with batch normalization and max pooling layer then foollowed by 1 Flatten layer and 4 dense layer with activation ELU and using dropout to not overfit the network,
+* Optimizer Adam with learning rate 1e-4 instead of default 1e-3.
 
 Keras provides the Cropping2D layer for image cropping within the model. This is relatively fast, because the model is parallelized on the GPU, so many images are cropped simultaneously.By contrast, image cropping outside the model on the CPU is relatively slow.
 
