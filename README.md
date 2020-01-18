@@ -41,7 +41,38 @@ As konwn, the vehicle's driving behavior is only as good as the behavior of the 
 4. A better approach is to record data when the car is driving (clockwise and counter-clockwise) from the side of the road back toward the center line(recovery driving from the sides).
     
     
+### Data Visulization
+
+The udacity simulator collects three different images (Center Image,Left Image,Right Image)and corresponding steering angle and logs into a folder with csv file having each image location with the steering angle.
+
+<p align="center"> <img src="./img/4.PNG" style="right;" alt=" Data Visulization
+" width="600" height="400"> </p> 
+
+
+    The image size: (160, 320, 3)
+    the number of the images: (24108, 160, 320, 3) 
+    the number of the steering angles (24108,) 
+
+
+### Dataset Balancing
+
+After loading data I ended up with 24108 images. But looking at steering angle distribution it looks like most of the image have zero or close to zero steering angle and because the training track includes long sections with very slight or no curvature, the data captured from it tends to be heavily skewed toward low and zero turning angles. This creates a problem for the neural network, which then becomes biased toward driving in a straight line and can become easily confused by sharp turns. The distribution of the input data can be observed below, the black line represents what would be a uniform distribution of the data points.
 
 
 
 
+<p align="center"> <img src="./img/5.PNG" style="right;" alt=" Dataset Balancing
+" width="300" height="200"> </p> 
+
+
+As you can see data is not a normal distribution or gaussian To overcome this problem I used the two following method to correct the data.
+
+To reduce the occurrence of low and zero angle data points, I first chose a number of bins (I decided upon 23) and produced a histogram of the turning angles using numpy.histogram. I also computed the average number of samples per bin (avg_samples_per_bin - what would be a uniform distribution) and plotted them together. Next, I determined a "keep probability" (keep_prob) for the samples belonging to each bin. That keep probability is 1.0 for bins that contain less than avg_samples_per_bin, and for other bins the keep probability is calculated to be the number of samples for that bin divided by avg_samples_per_bin (for example, if a bin contains twice the average number of data points its keep probability will be 0.5). Finally, I removed random data points from the data set with a frequency of (1 - keep_prob).
+
+The resulting data distribution can be seen in the chart below. The distribution is not uniform overall, but it is much closer to uniform for lower and zero turning angles.
+
+<p align="center"> <img src="./img/6.PNG" style="right;" alt=" Dataset Balancing
+" width="300" height="200"> </p> 
+
+The number of images After datset balancing : (7101, 160, 320, 3)
+The number of steering angles After datset balancing : (7101,)
