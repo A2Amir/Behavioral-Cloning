@@ -76,3 +76,11 @@ The resulting data distribution can be seen in the chart below. The distribution
 
     The number of images After datset balancing : (7101, 160, 320, 3)
     The number of steering angles After datset balancing : (7101,)
+
+### Data Augmentation
+
+As you can see above, the number of our dataset has decreased from 24108 to 7101, indicating the need for data augmentation to address the challenge of small datasets. To overcome this challenge I implement tow strategies presented below:
+
+* I used histogram equalization to equalize each intensity values
+* Flipping Images and Steering angles by using keras preprocessing image function, which is a effective technique for helping with the left turn bias involves flipping images and taking the opposite sign of the steering angle.
+
