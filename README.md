@@ -4,7 +4,7 @@ In this Project I am going to teach about behavioral cloning. First I am going t
 
 ### How to collect data
 
-Data is collected with [Udacity self-driving car simulator](https://github.com/udacity/self-driving-car-sim) (see Image below), which has two modes(training and autonomous) and two tracks.In the training mode, the simulator captures images from three cameras mounted on the car: 
+Data is collected with the [Udacity self-driving car simulator](https://github.com/udacity/self-driving-car-sim) (see Image below), which has two modes(training and autonomous) and two tracks.In the training mode, the simulator captures images from three cameras mounted on the car: 
 
 1. A center camera, 
 2. A right camera
