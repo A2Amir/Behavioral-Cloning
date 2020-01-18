@@ -42,7 +42,6 @@ As konwn, the vehicle's driving behavior is only as good as the behavior of the 
     
     
 
-Since this model outputs a single continuous numeric value, one appropriate error metric would be mean squared error. If the mean squared error is high on both a training and validation set, the model is underfitting. If the mean squared error is low on a training set but high on a validation set, the model is overfitting. Collecting more data can help improve a model when the model is overfitting.
 
 
 
