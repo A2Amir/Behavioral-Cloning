@@ -106,3 +106,5 @@ Also, by adding the cropping layer, the model will automatically crop the input 
     0 columns of pixels from the right of the image
 
 Since this model outputs a single continuous numeric value, one appropriate error metric would be mean squared error. If the mean squared error is high on both a training and validation set, the model is underfitting. If the mean squared error is low on a training set but high on a validation set, the model is overfitting. Collecting more data can help improve a model when the model is overfitting.
+
+<p align="center"> <img src="./img/3_1.png" style="right;" alt="Architecture" width="300" height="500"> </p> 
