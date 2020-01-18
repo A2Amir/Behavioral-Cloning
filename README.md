@@ -127,20 +127,19 @@ When calling model.fit_generator(), Keras outputs a history object that contains
 
 ### Autonomous Mode
 
-After training the neural network I will use [drive.py]() to drive the vehicle in the autonomous mode of the Udacity simulator to record a video of my vehicle driving autonomously around the track. As seen below, the video includes at least one full lap around the track.  "No tire may leave the drivable portion of the track surface. The car may not pop up onto ledges or roll over any surfaces that would otherwise be considered unsafe (if humans were in the vehicle)."
+After training the neural network I will use [drive.py](https://github.com/A2Amir/Behavioral-Cloning/blob/master/drive.py) to drive the vehicle in the autonomous mode of the Udacity simulator to record a video of my vehicle driving autonomously around the track. As seen below, the video includes at least one full lap around the track.  "No tire may leave the drivable portion of the track surface. The car may not pop up onto ledges or roll over any surfaces that would otherwise be considered unsafe (if humans were in the vehicle)."
 
-Below are presented the instructions on how to use [the trained weights]() to drive the vehicle in the autonomous mode to record a video.
+Below are presented the instructions on how to use [the trained weights](https://github.com/A2Amir/Behavioral-Cloning/blob/master/model.h5) to drive the vehicle in the autonomous mode to record a video.
    
                    python drive.py model.h5 run1
                    
-The fourth argument, **run1**, is the directory in which to save the images seen by the autonomous agent and after saving all images based on a timestamp of when the image was seen, this information is used by video.py to create a chronological video of the agent driving using [video.py]()
+The fourth argument, **run1**, is the directory in which to save the images seen by the autonomous agent and after saving all images based on a timestamp of when the image was seen, this information is used by video.py to create a chronological video of the agent driving using [video.py](https://github.com/A2Amir/Behavioral-Cloning/blob/master/drive.py)
 
 
                     python video.py run1
                     
        
-<p align="center"> <img src="./img/output_video.mp4" style="right;" alt=" Dataset Balancing
-" width="300" height="200"> </p> 
+<p align="center"> <img src="./img/1.gif" style="right;"  width="600" height="400"> </p> 
 
 
 
