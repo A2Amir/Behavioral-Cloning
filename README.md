@@ -108,3 +108,39 @@ Also, by adding the cropping layer, the model will automatically crop the input 
 Since this model outputs a single continuous numeric value, one appropriate error metric would be mean squared error. If the mean squared error is high on both a training and validation set, the model is underfitting. If the mean squared error is low on a training set but high on a validation set, the model is overfitting. Collecting more data can help improve a model when the model is overfitting.
 
 <p align="center"> <img src="./img/3_1.png" style="right;" alt="Architecture" width="300" height="500"> </p> 
+
+### Train Model
+
+I train model with the generator and Parameters I used in my model:
+
+    No of epochs: 5
+    Optimizer Used: Adam
+    Learning Rate: 1e-4
+    Validation Data split: 0.2
+    Generator batch size: 32
+    Correction factor: 0.25 and -0.25
+    Loss Function Used: MSE(Mean Squared Error as it is efficient for regression problem).
+    Activation Function: RELU and ELU
+    Dropout: 50%
+    
+When calling model.fit_generator(), Keras outputs a history object that contains the training and validation loss for each epoch. Here is an example of how you can use the history object to visualize the loss which shows like below.
+
+### Autonomous Mode
+
+After training the neural network I will use [drive.py]() to drive the vehicle in the autonomous mode of the Udacity simulator to record a video of my vehicle driving autonomously around the track. As seen below, the video includes at least one full lap around the track.  "No tire may leave the drivable portion of the track surface. The car may not pop up onto ledges or roll over any surfaces that would otherwise be considered unsafe (if humans were in the vehicle)."
+
+Below are presented the instructions on how to use [the trained weights]() to drive the vehicle in the autonomous mode to record a video.
+   
+                   python drive.py model.h5 run1
+                   
+The fourth argument, **run1**, is the directory in which to save the images seen by the autonomous agent and after saving all images based on a timestamp of when the image was seen, this information is used by video.py to create a chronological video of the agent driving using [video.py]()
+
+
+                    python video.py run1
+                    
+       
+<p align="center"> <img src="./img/output_video.mp4" style="right;" alt=" Dataset Balancing
+" width="300" height="200"> </p> 
+
+
+
