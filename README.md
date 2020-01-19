@@ -71,7 +71,7 @@ After loading data I ended up with 24108 images. But looking at steering angle d
 " width="300" height="200"> </p> 
 
 
-As you can see data is not a normal distribution or gaussian To overcome this problem I used the two following method to correct the data.
+As you can see data is not a normal distribution or gaussian To overcome this problem I used the following method to correct the data distribution.
 
 To reduce the occurrence of low and zero angle data points, I first chose a number of bins (I decided upon 23) and produced a histogram of the turning angles using numpy.histogram. I also computed the average number of samples per bin (avg_samples_per_bin - what would be a uniform distribution) and plotted them together. Next, I determined a "keep probability" (keep_prob) for the samples belonging to each bin. That keep probability is 1.0 for bins that contain less than avg_samples_per_bin, and for other bins the keep probability is calculated to be the number of samples for that bin divided by avg_samples_per_bin (for example, if a bin contains twice the average number of data points its keep probability will be 0.5). Finally, I removed random data points from the data set with a frequency of (1 - keep_prob).
 
